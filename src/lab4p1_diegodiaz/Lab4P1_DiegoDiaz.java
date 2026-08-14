@@ -7,8 +7,8 @@ import java.util.Scanner;
  * @author diego
  */
 public class Lab4P1_DiegoDiaz {
+
     static Scanner leer = new Scanner(System.in);
-    
 
     /**
      * @param args the command line arguments
@@ -33,12 +33,12 @@ public class Lab4P1_DiegoDiaz {
                 }
             case 2:
                 if (opcion == 2) {
-                    DescomprensionMensajesE2();
+                    DescomprensionMensajes();
 
                 }
             case 3:
                 if (opcion == 3) {
-                    conversordenumeros();
+                    System.out.println("Hola");
 
                 }
             case 4:
@@ -51,49 +51,88 @@ public class Lab4P1_DiegoDiaz {
     }
 
     public static void codigoSeguridadE1() {
-        
-        System.out.println("\nCodigo de seguridad");
-        System.out.println("Ingrese el codigo de seguridad que quiere enviar: ");
         String cod;
-        cod = leer.nextLine();
-        
-        
-        
-        
-        
+        System.out.println("\nCodigo de seguridad");
+       
+
+        while (true) {
+            System.out.print("Ingrese el codigo de seguridad que quiere enviar: ");
+            cod = leer.nextLine();
+
+            if (validar(cod)) {
+             break;
+            } else {
+                System.out.println("Cadena Invalida");
+
+            }
+
+        }
+        int promedio = calculoPromedio(cod);
+        char letra = letraSeguridad(promedio);
+        Resultado(cod, promedio, letra);
 
     }
 
-    public static void DescomprensionMensajesE2() {
-        
-        
-        
-        
-        
+    public static boolean validar(String cod) {
+        if (cod.length() != 8) {
+            return false;
+        }
+        for (int i = 0; i < 3; i++) {
+            if (!Character.isLetter(cod.charAt(i))) {
+                return false;
+
+            }
+
+        }
+        if (cod.charAt(3) != '-') {
+            return false;
+
+        }
+        for (int i = 4; i < 8; i++) {
+            if (!Character.isDigit(cod.charAt(i))) {
+                return false;
+
+            }
+        }
+        return true;
 
     }
-    
-    
-    
-    
-    public static void conversordenumeros(){
+
+    public static int calculoPromedio(String cod) {
+        int suma = 0;
+        for (int i = 4; i < 8; i++) {
+
+            suma += Character.getNumericValue(cod.charAt(i));
+
+        }
+        return suma / 4;
+
+    }
+
+    public static char letraSeguridad(int promedio) {
+        if (promedio >= 0 && promedio <= 3) {
+            return 'A';
+        } else if (promedio > 3 && promedio <= 6) {
+            return 'B';
+        } else {
+            return 'C';
+
+        }
+    }
+
+    public static void Resultado(String codigo, int promedio, char letra) {
         
-        
-        
-        
-        
-        
-        
-        
+        System.out.println("El promedio de los digitos es:" + promedio);
+        System.out.println("El codigo de seguridad es: " + codigo + "-" + letra);
     }
     
-    public static void SalidaPrograma(){
     
-    
-    
+    public static void DescomprensionMensajes(){
+        System.out.println("Hola");
+        
+               
     
 }
     
-    
-
+  
 }
