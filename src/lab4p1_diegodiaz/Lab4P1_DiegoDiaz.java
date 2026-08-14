@@ -53,14 +53,13 @@ public class Lab4P1_DiegoDiaz {
     public static void codigoSeguridadE1() {
         String cod;
         System.out.println("\nCodigo de seguridad");
-       
 
         while (true) {
             System.out.print("Ingrese el codigo de seguridad que quiere enviar: ");
             cod = leer.nextLine();
 
             if (validar(cod)) {
-             break;
+                break;
             } else {
                 System.out.println("Cadena Invalida");
 
@@ -121,18 +120,42 @@ public class Lab4P1_DiegoDiaz {
     }
 
     public static void Resultado(String codigo, int promedio, char letra) {
-        
+
         System.out.println("El promedio de los digitos es:" + promedio);
         System.out.println("El codigo de seguridad es: " + codigo + "-" + letra);
     }
     
     
-    public static void DescomprensionMensajes(){
-        System.out.println("Hola");
+    
+    
+
+    public static void DescomprensionMensajes() {
+        String cadena = "";
         
-               
+        while (true) {
+            System.out.println("Ingrese la cadena a descomprimir: ");
+            cadena = leer.nextLine();
+            
+            if (validarMensaje(cadena)) {
+                
+                
+            }
+           
+            
+            
+            
+           
+            
+        }
+      
+        
+        
+        
+
+    }
+    public static boolean validarMensaje(){
+        
+    }
     
-}
-    
-  
+
 }
